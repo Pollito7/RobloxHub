@@ -1,23 +1,10 @@
 {
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
-  "headers": [
-    {
-      "source": "/assets/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-    },
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,OPTIONS" }
-      ]
-    }
-  ],
   "functions": {
-    "api/db.js": { "runtime": "nodejs18.x" },
-    "api/claude.js": { "runtime": "edge" }
+    "api/claude.js": {
+      "runtime": "edge"
+    },
+    "api/db.js": {
+      "runtime": "nodejs18.x"
+    }
   }
 }
